@@ -63,17 +63,17 @@ func cleanIp(s string) string {
 func loadConfig() bool {
 	path, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	if err != nil {
-		log.Fatalf("error: %v", err)
+		log.Println("error: %v", err)
 	}
 	pwd = path
 	content, err := ioutil.ReadFile(*configFile)
 	if err != nil {
-		log.Fatalf("error: %v", err)
+		log.Println("error: %v", err)
 		return false
 	} else {
 		err := yaml.Unmarshal(content, &config)
 		if err != nil {
-			log.Fatalf("error: %v", err)
+			log.Println("error: %v", err)
 			return false
 		}
 		return true
@@ -86,7 +86,7 @@ func ReadAccess() {
 	if err == nil {
 		err := yaml.Unmarshal(content, &lastlog)
 		if err != nil {
-			log.Fatalf("error1: %v", err)
+			log.Println("error1: %v", err)
 		}
 	}
 }
