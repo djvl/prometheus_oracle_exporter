@@ -33,7 +33,7 @@ type oraerr struct {
 
 var (
 	Errors    []oraerr
-	oralayout = "Mon Jan 02 15:04:05 2006"
+	oralayout = "2006-01-02T15:04:05.000000+00:00"
 	lastlog   Lastlogs
 )
 
