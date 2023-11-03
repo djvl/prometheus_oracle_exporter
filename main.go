@@ -1087,9 +1087,9 @@ func (e *Exporter) Handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
-	log.Infoln("Starting Prometheus Oracle exporter " + Version)
+	log.Println("Starting Prometheus Oracle exporter " + Version)
 	if loadConfig() {
-		log.Infoln("Config loaded: ", *configFile)
+		log.Println("Config loaded: ", *configFile)
 		exporter := NewExporter()
 		prometheus.MustRegister(exporter)
 
@@ -1097,7 +1097,7 @@ func main() {
 
 		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { w.Write(landingPage) })
 
-		log.Infoln("Listening on", *listenAddress)
+		log.Println("Listening on", *listenAddress)
 		log.Fatal(http.ListenAndServe(*listenAddress, nil))
 	}
 }
